@@ -36,7 +36,7 @@ class Product
     /**
      * @var Collection<int, subCategory>
      */
-    #[ORM\ManyToMany(targetEntity: subCategory::class, inversedBy: 'products')]
+    #[ORM\ManyToMany(targetEntity: SubCategory::class, inversedBy: 'products')]
     private Collection $subCategories;
 
     public function __construct()
