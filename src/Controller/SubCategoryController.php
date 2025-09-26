@@ -33,6 +33,7 @@ final class SubCategoryController extends AbstractController
             $entityManager->persist($subCategory);
             $entityManager->flush();
 
+            $this->addFlash('success','La sous-catégorie a été ajoutée');
             return $this->redirectToRoute('app_sub_category_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -76,6 +77,8 @@ final class SubCategoryController extends AbstractController
             $entityManager->flush();
         }
 
+        
+        $this->addFlash('danger','La sous-catégorie a été supprimée');
         return $this->redirectToRoute('app_sub_category_index', [], Response::HTTP_SEE_OTHER);
     }
 }
