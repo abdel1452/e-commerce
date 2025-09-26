@@ -2,5 +2,6 @@
     <label for="">Nom du produit: </label>
     {{ form_widget(form.name,{'attr':{'class':'form form-control','placeholder':'nom'}}) }}
     {{ form_errors(form.name) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+   
 {{ form_end(form) }}
+ <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
