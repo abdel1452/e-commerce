@@ -22,14 +22,21 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description|slice(0,100) }}</td>
                 <td>{{ product.price }}</td>
+
+                {% if product.stock > 0 %}
+                    <td>{{ product.stock }}</td>
+                {% else %}
                 <td>
-                    <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                    <span class="text-danger">Stock épuisé</span>
+                </td>
+                <td>
+                    <a href="{{ path('app_product_show', {'id': product.id}) }}">Afficher</a>
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="6">Aucun produit à afficher</td>
             </tr>
         {% endfor %}
         </tbody>
